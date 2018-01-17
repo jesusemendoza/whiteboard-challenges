@@ -1,0 +1,22 @@
+{
+  "name": "02-two-greatest",
+  "version": "1.0.0",
+  "description": "Finds the two greatest numbers in an array and displays them",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "#goals",
+    "#seattle-life",
+    "#insta"
+  ],
+  "author": "Jesus",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^22.1.1"
+  }
+}
