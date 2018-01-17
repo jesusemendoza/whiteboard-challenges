@@ -23,11 +23,11 @@ solution.twoLargest = function (array) {
    
    //checks for duplicates
    let arrayUnique = Array.from(new Set(arraySorted));
-   
-   let largest = arrayUnique[0];
-   let secondLargest = arrayUnique[1]
     
-   return [largest, secondLargest];
+   return  { // object literal
+    largest: arrayUnique[0],
+    secondLargest: arrayUnique[1]
+    }
  };
 
 
