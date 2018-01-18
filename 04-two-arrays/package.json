@@ -1,0 +1,17 @@
+{
+  "name": "04-two-arrays",
+  "version": "1.0.0",
+  "description": "Takes 2 arrays and returns an arrray with the similar values",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jesus",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^22.1.3"
+  }
+}
