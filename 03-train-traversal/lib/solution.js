@@ -1,14 +1,3 @@
-// findPass.numPass = function(arr) {
-//   let car = arr;
-//   let total = 0;
-//   while (car.next) {
-//     total += car.value;
-//     car = car.next;
-//     findPass.numPass(car);
-//   }
-//   total += car.value;
-// };
-
 const solution = module.exports = {};
 
 solution.numPass = function (car) {
