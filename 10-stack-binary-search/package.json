@@ -1,0 +1,17 @@
+{
+  "name": "10-stack-binary-search",
+  "version": "1.0.0",
+  "description": "use a stack to check for closed braces and use a binary search",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jesus",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^22.1.4"
+  }
+}
