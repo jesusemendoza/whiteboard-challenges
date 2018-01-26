@@ -6,20 +6,30 @@ require('jest');
 
 describe('Solution Module', function() {
   describe('#Two Largest', function() {
-    it('should take in an empty argument and return null', function() {
-      expect(solution.numPass()).toEqual(null);
-    });
-    it('should take in a number and return not a number', function() {
-      expect(solution.numPass(5)).toEqual('not an object');
+    let sll = new SLL();
+     sll.insertHead(0);
+     sll.insertEnd(1);
+     sll.insertEnd(2);
+     sll.insertEnd(3);
+     sll.insertEnd(4);
+     sll.insertEnd(5);
+    let sllTest = sll.head.next.next
+    it('should take in a created SLL and return the correct value from the end', function() {
+      expect(solution.nthNode(sll, 2)).toEqual(sllTest);
     });
 
-    it('should take in an object and return the sum of all of the values', function() {
-      expect(solution.numPass({value: 5, next: {value: 5, next: {value: 5, next: null}}})).toEqual(15);
+    it('should take in a created SLL and return the correct value from the end', function() {
+      expect(solution.nthNode('sll', 2)).toEqual(null);
+    });
+    
+    it('should take in a created SLL and return the correct value from the end', function() {
+      expect(solution.nthNode(sll, '2')).toEqual(null);
     });
 
-    it('should take in an object and return the sum of all of the values', function() {
-      expect(solution.numPass({value: 5, next: {value: 'string', next: {value: 5, next: null}}})).toEqual('one value in the object is not a number');
+    it('should take in a created SLL and return the correct value from the end', function() {
+      expect(solution.nthNode(sll, 8)).toEqual('nth value from end is greater than length of list');
     });
+    
 
   });
 });

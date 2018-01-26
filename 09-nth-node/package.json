@@ -1,0 +1,20 @@
+{
+  "name": "09-nth-node",
+  "version": "1.0.0",
+  "description": "This program finds the nth-Node from the last and returns that node",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jesus",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  },
+  "dependencies": {
+    "eslint": "^4.16.0"
+  }
+}

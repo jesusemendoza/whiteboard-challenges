@@ -2,13 +2,14 @@
 
 const solution = module.exports = {};
 
-solution.find = function (offset, SLL) {
-  if (!SLL || typeof SLL !== 'object' || typeof offset !== 'number') return null;
+solution.nthNode = function (SLL, n) {
+  if (!SLL || typeof SLL !== 'object' || typeof n !== 'number') return null;
   let counter = 1;
   for (var itr = SLL.head; itr.next; itr = itr.next) {
     counter ++;
   }
-  let diff = counter - offset;
+  let diff = counter - n;
+  if (diff < 0) return 'nth value from end is greater than length of list';
   if (diff < 1 || typeof diff !== 'number') return null;
   let curr = SLL.head;
   for (let i = 1; i < diff; i++) {
