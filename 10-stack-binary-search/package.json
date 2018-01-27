@@ -12,6 +12,8 @@
   "author": "Jesus",
   "license": "MIT",
   "dependencies": {
+    "eslint": "^4.16.0",
+    "eslintrc": "^1.0.4",
     "jest": "^22.1.4"
   }
 }
