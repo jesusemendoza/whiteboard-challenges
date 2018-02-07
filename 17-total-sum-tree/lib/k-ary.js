@@ -51,7 +51,6 @@ const K_ary = module.exports = class {
 
   // Sum Total
   sumTotal() {
-    console.log('inside sumTotal K-ary: ',this);
     let sum = 0;
     this.breadthFirst(node => {
       if (typeof node.val.val === 'number') sum += node.val.val;
