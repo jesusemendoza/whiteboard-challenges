@@ -1,20 +1,19 @@
 'use strict';
 
 const solution = module.exports = {};
+const K = require('./k-ary');
 
-solution.nthNode = function (SLL, n) {
-  if (!SLL || typeof SLL !== 'object' || typeof n !== 'number') return null;
-  let counter = 1;
-  for (var itr = SLL.head; itr.next; itr = itr.next) {
-    counter ++;
-  }
-  let diff = counter - n;
-  if (diff < 0) return 'nth value from end is greater than length of list';
-  if (diff < 1 || typeof diff !== 'number') return null;
-  let curr = SLL.head;
-  for (let i = 1; i < diff; i++) {
-    curr = curr.next;
-    if (!curr) return 'this node does not exist';
-  }
-  return curr;
+let k = new K();
+k.insert(0);
+k.insert(1,0);
+k.insert(2,1);
+k.insert(3,2);
+k.insert(20,0);
+k.insert(14,0);
+k.insert('14',0);
+solution.totalSum = function (r) {
+  if(typeof r !== 'object') return console.log('no bueno');
+  return console.log('final solution: ',r.sumTotal());
 };
+
+solution.totalSum(k);
