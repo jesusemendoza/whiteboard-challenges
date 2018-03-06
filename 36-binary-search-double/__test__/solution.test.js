@@ -1,35 +1,56 @@
 'use strict';
 
 const solution = require('../lib/solution');
-const SLL = require('../lib/sll')
 require('jest');
 
 describe('Solution Module', function() {
-  describe('#Two Largest', function() {
-    let sll = new SLL();
-     sll.insertHead(0);
-     sll.insertEnd(1);
-     sll.insertEnd(2);
-     sll.insertEnd(3);
-     sll.insertEnd(4);
-     sll.insertEnd(5);
-    let sllTest = sll.head.next.next
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, 2)).toEqual(sllTest);
-    });
-
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode('sll', 2)).toEqual(null);
-    });
+  describe('#Two Equal', function() {
+    let bst = {
+      value: 3,
+      left: {
+        value: 4,
+        left: {
+          value: 6,
+          left: null,
+          right: null,
+        },
+        right: null,
+      },
+      right: {
+        value: 4,
+        left: null,
+        right: null,
+      },
+    };
     
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, '2')).toEqual(null);
+    let bstTwo = {
+      value: 3,
+      left: {
+        value: 5,
+        left: null,
+        right: null,
+      },
+      right: {
+        value: 8,
+        left: {
+          value: 9,
+          left: null,
+          right: null,
+        },
+        right: null,
+      },
+    };
+    it('should return not a valid input when a string is used', function() {
+      expect(solution.isSameBst('bst', bstTwo)).toEqual('not a valid input');
     });
-
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, 8)).toEqual('nth value from end is greater than length of list');
+    it('should return false when an empty object is used', function() {
+      expect(solution.isSameBst([], bstTwo)).toEqual(false);
     });
-    
-
+    it('should return the correct value when two equal trees are compared', function() {
+      expect(solution.isSameBst(bst, bst)).toEqual(true);
+    });
+    it('should return the false when 2 unequal trees are compared', function() {
+      expect(solution.isSameBst(bst, bstTwo)).toEqual(false);
+    });
   });
 });
