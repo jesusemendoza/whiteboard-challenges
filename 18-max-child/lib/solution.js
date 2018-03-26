@@ -1,20 +1,14 @@
 'use strict';
-
 const solution = module.exports = {};
 
-solution.nthNode = function (SLL, n) {
-  if (!SLL || typeof SLL !== 'object' || typeof n !== 'number') return null;
-  let counter = 1;
-  for (var itr = SLL.head; itr.next; itr = itr.next) {
-    counter ++;
-  }
-  let diff = counter - n;
-  if (diff < 0) return 'nth value from end is greater than length of list';
-  if (diff < 1 || typeof diff !== 'number') return null;
-  let curr = SLL.head;
-  for (let i = 1; i < diff; i++) {
-    curr = curr.next;
-    if (!curr) return 'this node does not exist';
-  }
-  return curr;
+solution.maxChild = (tree) => {
+  if(!tree) return 'input required';
+  if(typeof tree !== 'object') return 'invalid tree';
+  let maxChildren = tree.root;
+  tree.breadthFirst(current => {
+    if(current.children.length > maxChildren.children.length) {
+      maxChildren = current;
+    }
+  });
+  return maxChildren;
 };
