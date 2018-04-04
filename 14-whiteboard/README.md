@@ -1,2 +1,4 @@
-Whiteboard Challenge 09
-Write a function which accepts n and a linked list as it's arguments, and will return the nth from last node in a linked list
+Whiteboard Challenge 14
+Complete today's whiteboard challenge and follow the submission instructions below:
+
+Write a function called dedupe(head) that accepts the head of a linked list as it's argument, and returns a new linked list - Use a stack to identify any consecutive duplication, and remove them from the list.

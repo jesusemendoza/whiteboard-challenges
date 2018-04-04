@@ -2,19 +2,17 @@
 
 const solution = module.exports = {};
 
-solution.nthNode = function (SLL, n) {
-  if (!SLL || typeof SLL !== 'object' || typeof n !== 'number') return null;
-  let counter = 1;
-  for (var itr = SLL.head; itr.next; itr = itr.next) {
-    counter ++;
+solution.arrIntersection = (arr0, arr1) => {
+  if (typeof arr1 !== 'object' || typeof arr0 !== 'object') {
+    return 'Not Array';
   }
-  let diff = counter - n;
-  if (diff < 0) return 'nth value from end is greater than length of list';
-  if (diff < 1 || typeof diff !== 'number') return null;
-  let curr = SLL.head;
-  for (let i = 1; i < diff; i++) {
-    curr = curr.next;
-    if (!curr) return 'this node does not exist';
-  }
-  return curr;
+  let newArr = [];
+  arr0.map(val => {
+    for (let i = 0; i < arr1.length; i++) {
+      if (val === arr1[i]) {
+        newArr.push(arr1[i]);
+      }
+    }
+  });
+  return newArr;
 };

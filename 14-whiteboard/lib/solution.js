@@ -2,19 +2,37 @@
 
 const solution = module.exports = {};
 
-solution.nthNode = function (SLL, n) {
-  if (!SLL || typeof SLL !== 'object' || typeof n !== 'number') return null;
-  let counter = 1;
-  for (var itr = SLL.head; itr.next; itr = itr.next) {
-    counter ++;
-  }
-  let diff = counter - n;
-  if (diff < 0) return 'nth value from end is greater than length of list';
-  if (diff < 1 || typeof diff !== 'number') return null;
-  let curr = SLL.head;
-  for (let i = 1; i < diff; i++) {
+let node = {val : 5,
+  next : {
+    val : 4,
+    next : {
+      val : 3,
+      next : {
+        val : 2,
+        next : {
+          val : 1,
+          next : null,
+        },
+      },
+    },
+  },
+};
+  
+
+solution.dedupe = function (head) {
+  if(!head)null;
+
+  let curr = head;
+  let ahead = head.next;
+  while(curr.next){
+
+    console.log(curr.val, ' : curr');
     curr = curr.next;
-    if (!curr) return 'this node does not exist';
+    console.log(ahead.val,' : ahead');
+    ahead = ahead.next;
   }
   return curr;
+  
 };
+
+solution.dedupe(node);
