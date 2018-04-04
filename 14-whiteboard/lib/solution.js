@@ -1,38 +1,27 @@
 'use strict';
 
 const solution = module.exports = {};
-
-let node = {val : 5,
-  next : {
-    val : 4,
-    next : {
-      val : 3,
-      next : {
-        val : 2,
-        next : {
-          val : 1,
-          next : null,
-        },
-      },
-    },
-  },
-};
-  
+const Stack = require('./stack');  
 
 solution.dedupe = function (head) {
-  if(!head)null;
+  if(typeof head !== 'object') {
+    return null;
+  }
+  if(!head.next) {
+    return 'not a valid sll';
+  }
+  let stacky = new Stack();
 
   let curr = head;
   let ahead = head.next;
+  stacky.push(curr.val);
   while(curr.next){
-
-    console.log(curr.val, ' : curr');
+    if(stacky.peek().val !== ahead.val) {
+      stacky.push(ahead.val);
+    }
+   
     curr = curr.next;
-    console.log(ahead.val,' : ahead');
     ahead = ahead.next;
   }
-  return curr;
-  
+  return stacky;
 };
-
-solution.dedupe(node);
