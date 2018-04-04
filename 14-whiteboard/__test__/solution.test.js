@@ -1,35 +1,55 @@
 'use strict';
 
 const solution = require('../lib/solution');
-const SLL = require('../lib/sll')
 require('jest');
 
 describe('Solution Module', function() {
   describe('#Two Largest', function() {
-    let sll = new SLL();
-     sll.insertHead(0);
-     sll.insertEnd(1);
-     sll.insertEnd(2);
-     sll.insertEnd(3);
-     sll.insertEnd(4);
-     sll.insertEnd(5);
-    let sllTest = sll.head.next.next
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, 2)).toEqual(sllTest);
-    });
-
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode('sll', 2)).toEqual(null);
-    });
+    let node1 = {val : 5,
+      next : {
+        val : 4,
+        next : {
+          val : 3,
+          next : {
+            val : 2,
+            next : {
+              val : 1,
+              next : null,
+            },
+          },
+        },
+      },
+    };
     
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, '2')).toEqual(null);
-    });
+    let node2 = {val : 5,
+      next : {
+        val : 4,
+        next : {
+          val : 3,
+          next : {
+            val : 3,
+            next : {
+              val : 1,
+              next : null,
+            },
+          },
+        },
+      },
+    };
+    let nodeSol1 = {'maxSize': 1024, 'size': 4, 'top': {'next': {'next': {'next': {'next': null, 'val': 5}, 'val': 4}, 'val': 3}, 'val': 1}}
+    let nodeSol2 = {'maxSize': 1024, 'size': 5, 'top': {'next': {'next': {'next': {'next': {'next': null, 'val': 5}, 'val': 4}, 'val': 3}, 'val': 2}, 'val': 1}};
 
-    it('should take in a created SLL and return the correct value from the end', function() {
-      expect(solution.nthNode(sll, 8)).toEqual('nth value from end is greater than length of list');
+    it('should take in a created SLL and return the correct value', function() {
+      expect(solution.dedupe(node1)).toEqual(nodeSol2);
     });
-    
-
+    it('should take in a created SLL and return the correct value', function() {
+      expect(solution.dedupe(node2)).toEqual(nodeSol1);
+    });
+    it('should take in a null parameter and return null', function() {
+      expect(solution.dedupe()).toEqual(null);
+    });
+    it('should take in an array and return not a valid sll', function() {
+      expect(solution.dedupe([])).toEqual('not a valid sll');
+    });
   });
 });
